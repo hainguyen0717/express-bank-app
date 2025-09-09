@@ -29,19 +29,27 @@ export const registerUser = async (req, res) => {
   const { username, password } = req.body;
 
   try {
-    const newUser = await user.create({ username, password });
-    return res.status(201).json({ id: newUser.id, username: newUser.username });
+    await user.create({ username, password });
+    // Redirect to login page with a success message
+    return res.redirect('/?success=Registration%20successful');
   } catch (err) {
+    let errorMessage = 'Server error';
     if (err.name === 'SequelizeUniqueConstraintError') {
-      return res.status(409).send('Username already exists');
+      errorMessage = 'Username already exists';
     }
 
-    return res.status(500).send('Server error');
+    // Render the registration page with an error message
+    return res.status(400).render('register', { error: errorMessage });
   }
 };
 
 export const getLoginPage = (req, res) => {
-  res.render('index');
+  const { success } = req.query;
+  res.render('index', { success });
+};
+
+export const getRegisterPage = (req, res) => {
+  res.render('register');
 };
 
 export const getWelcomePage = async (req, res) => {
