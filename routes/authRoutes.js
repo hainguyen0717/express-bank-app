@@ -5,7 +5,6 @@ import {
   getRegisterPage,
   getWelcomePage,
   registerUser,
-  getRegisterPage,
 } from '../controllers/authController.js';
 import { validateAuthBody } from '../middlewares/authMiddleware.js';
 
@@ -15,7 +14,7 @@ router.get('/', getLoginPage);
 
 router.get('/register', getRegisterPage);
 
-router.post('/login', validateLoginBody, loginuser);
+router.post('/login', validateAuthBody, loginuser);
 
 router.post('/register', validateAuthBody, registerUser);
 

@@ -31,16 +31,18 @@ app.use("/", authRoutes);
 app.use("/users", accountRoutes);
 app.use("/accounts", transactionRoutes);
 
-sequelize
-  .sync()
-  .then(async () => {
-    console.log("Database & tables created!");
-    // Seed initial data here if needed
-    app.listen(PORT, () => {
-      console.log(`Server is running at http://127.0.0.1:${PORT}`);
-    });
-  })
-  .catch((err) => console.error("Database sync error:", err));
+if (process.env.NODE_ENV !== 'test') {
+  sequelize
+    .sync()
+    .then(async () => {
+      console.log("Database & tables created!");
+      // Seed initial data here if needed
+      app.listen(PORT, () => {
+        console.log(`Server is running at http://127.0.0.1:${PORT}`);
+      });
+    })
+    .catch((err) => console.error("Database sync error:", err));
+}
 
 app.use((req, res) => {
   res.status(404).render("404", { title: "404 - Not Found" });
