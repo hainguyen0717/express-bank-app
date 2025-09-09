@@ -1,4 +1,4 @@
-export const validateLoginBody = (req, res, next) => {
+export const validateAuthBody = (req, res, next) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
