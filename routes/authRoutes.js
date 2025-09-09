@@ -2,6 +2,7 @@ import { Router } from 'express';
 import {
   loginuser,
   getLoginPage,
+  getRegisterPage,
   getWelcomePage,
   registerUser,
 } from '../controllers/authController.js';
@@ -11,7 +12,9 @@ const router = Router();
 
 router.get('/', getLoginPage);
 
-router.post('/login', validateAuthBody, loginuser);
+router.get('/register', getRegisterPage);
+
+router.post('/login', validateLoginBody, loginuser);
 
 router.post('/register', validateAuthBody, registerUser);
 
