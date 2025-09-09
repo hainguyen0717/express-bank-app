@@ -52,10 +52,6 @@ export const getRegisterPage = (req, res) => {
   res.render('register');
 };
 
-export const getRegisterPage = (req, res) => {
-  res.render('register');
-};
-
 export const getWelcomePage = async (req, res) => {
   const username = req.query.username;
 
