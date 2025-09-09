@@ -2,11 +2,12 @@ import { Router } from 'express';
 import {
   loginuser,
   getLoginPage,
+  getRegisterPage,
   getWelcomePage,
   registerUser,
   getRegisterPage,
 } from '../controllers/authController.js';
-import { validateLoginBody } from '../middlewares/authMiddleware.js';
+import { validateAuthBody } from '../middlewares/authMiddleware.js';
 
 const router = Router();
 
@@ -16,7 +17,7 @@ router.get('/register', getRegisterPage);
 
 router.post('/login', validateLoginBody, loginuser);
 
-router.post('/register', validateLoginBody, registerUser);
+router.post('/register', validateAuthBody, registerUser);
 
 router.get('/welcome', getWelcomePage);
 

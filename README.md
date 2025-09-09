@@ -93,6 +93,17 @@ Available Pages:
 /login: Log in with user credentials
 /accounts: Manage user accounts
 /transactions: View transaction history
+### Registering a New User Through the UI
+To create a new user from the browser:
+
+1. Navigate to `http://127.0.0.1:8081/register`.
+2. Fill out the registration form with:
+   - **Username** – choose a unique identifier.
+   - **Password** – enter a secure password.
+3. Submit the form. On success, the app redirects you back to the login page (`/`) where you can sign in with your new credentials.
+
+If the username already exists, you remain on the registration page and an error message is displayed.
+
 Default Users and Login Details
 The server seeds the database with initial data, including default users and accounts.
 
