@@ -2,6 +2,7 @@ import { Router } from 'express';
 import {
   loginuser,
   getLoginPage,
+  getRegisterPage,
   getWelcomePage,
   registerUser,
 } from '../controllers/authController.js';
@@ -10,6 +11,8 @@ import { validateLoginBody } from '../middlewares/authMiddleware.js';
 const router = Router();
 
 router.get('/', getLoginPage);
+
+router.get('/register', getRegisterPage);
 
 router.post('/login', validateLoginBody, loginuser);
 
