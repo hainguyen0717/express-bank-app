@@ -3,6 +3,7 @@ import {
   loginuser,
   getLoginPage,
   getWelcomePage,
+  registerUser,
 } from '../controllers/authController.js';
 import { validateLoginBody } from '../middlewares/authMiddleware.js';
 
@@ -11,6 +12,8 @@ const router = Router();
 router.get('/', getLoginPage);
 
 router.post('/login', validateLoginBody, loginuser);
+
+router.post('/register', validateLoginBody, registerUser);
 
 router.get('/welcome', getWelcomePage);
 
