@@ -5,6 +5,7 @@ import {
   getRegisterPage,
   getWelcomePage,
   registerUser,
+  getRegisterPage,
 } from '../controllers/authController.js';
 import { validateAuthBody } from '../middlewares/authMiddleware.js';
 

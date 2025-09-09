@@ -21,6 +21,9 @@
               <h2>Alfa Banking App</h2>
             </div>
             <div class="card-body">
+              <% if (typeof success !== 'undefined') { %>
+              <div class="alert alert-success"><%= success %></div>
+              <% } %>
               <form action="/login" method="POST">
                 <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
