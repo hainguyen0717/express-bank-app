@@ -25,6 +25,21 @@ export const loginuser = async (req, res) => {
   }
 };
 
+export const registerUser = async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const newUser = await user.create({ username, password });
+    return res.status(201).json({ id: newUser.id, username: newUser.username });
+  } catch (err) {
+    if (err.name === 'SequelizeUniqueConstraintError') {
+      return res.status(409).send('Username already exists');
+    }
+
+    return res.status(500).send('Server error');
+  }
+};
+
 export const getLoginPage = (req, res) => {
   res.render('index');
 };
