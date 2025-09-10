@@ -75,7 +75,7 @@ export const getWelcomePage = async (req, res) => {
     const accounts = await account.findAll({ where: { userId: foundUser.id } });
 
     return res.render('welcome', {
-      user: { username: foundUser.username },
+      user: { id: foundUser.id, username: foundUser.username },
       accounts,
     });
   } catch (err) {
