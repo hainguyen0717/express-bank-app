@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Pause length="38"/>
+    <Say voice="alice">Please state your reason for calling.</Say>
+    <Pause length="45"/>
+    <Say voice="alice">Please provide your postcode.</Say>
+    <Pause length="2"/>
+    <Say voice="alice">Please say your date of birth.</Say>
+    <Pause length="180"/>
+    <Say voice="alice">Thank you. An agent will be with you shortly.</Say>
+</Response>
