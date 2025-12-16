@@ -6,5 +6,6 @@
     <Say voice="alice">3000</Say>
     <Pause length="2"/>
     <Say voice="alice">01 Jan 1990</Say>
-    <Pause length="180"/>
+    <Pause length="20"/>
+    <Play>http://demo.twilio.com/docs/classic.mp3</Play>
 </Response>
